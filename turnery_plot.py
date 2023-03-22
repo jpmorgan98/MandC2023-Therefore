@@ -4,7 +4,12 @@ import matplotlib.pyplot as plt
 import matplotlib as mpl
 
 # list of angle files
-N_angles = np.array([4, 8, 16, 32, 64, 128])
+N_angles = np.array([4, 16, 32, 64, 128, 256])
+N_angles2 = np.array([64, 96, 128, 256])
+#N_angles = N_angles2
+
+#location = 
+
 
 cmap = mpl.cm.viridis
 
@@ -24,7 +29,7 @@ for i in range(N_angles.size):
 max_rat = np.max(all_maxs)
 max_rat = 3.0
 min_rat = np.min(all_mins)
-
+#min_rat = 0.99
 
 figure, ax = plt.subplots(2,3)
 figure.set_size_inches(15, 10)
@@ -69,7 +74,7 @@ for i in range(N_angles.size):
     tax._redraw_labels()
     
     # labels
-    tax.set_title(r"S$_{{{}}}$".format(N_angles[i]), fontsize=18, y=1.12, pad=-14)
+    tax.set_title(r"S$_{{{}}}$".format(N_angles[i]), fontsize=18, y=1.15, pad=-14)
     tax.left_axis_label("scattering ratio [$\Sigma_s/\Sigma$]", offset=0.20, fontsize=10)
     tax.right_axis_label("mfp thickness [$\Sigma*\Delta x$]", offset=0.20, fontsize=10)
     tax.bottom_axis_label("$\Delta t$", offset=0, fontsize=10)
