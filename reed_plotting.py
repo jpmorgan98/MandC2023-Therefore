@@ -16,56 +16,67 @@ with np.load('TD_Reeds.npz') as data:
 
 
 def subplots():
-    fig, ax = plt.subplots(4,1)
+    fig, ax = plt.subplots(4,1, sharex=True)
     
-    
+    fig.set_size_inches(6,5)
     
     mid1 = int(sfMBSparse.shape[1]/3)
     mid2 =  int(2*sfMBSparse.shape[1]/3)
     trans_lab = 'Transient'
     
+    ss_color = 'gray'
+    trans_color = 'black'
+    
     i=0
-    ax[i].plot(x, sfSS, '--k', label='Stead State')
-    ax[i].plot(x, sfMBSparse[:,0], '--r', label=trans_lab)
+    ax[i].plot(x, sfSS, '--', color=ss_color, label='Stead State')
+    ax[i].plot(x, sfMBSparse[:,0], '-k', label=trans_lab)
     ax[i].set_xlim(0, 8)
-    ax[i].set_xlabel('Position [cm]')
     ax[i].set_ylabel('ϕ')
-    ax[i].grid(True)
-    ax[i].set(xlabel=None)
+    ax[i].set_title('t = 0 [s]')
+    ax[i].legend(loc="upper right")
+    #ax[i].spines['right'].set_visible(False)
+    #ax[i].spines['top'].set_visible(False)
+    
     
     i+=1
-    ax[i].plot(x, sfSS, '--k', label='Stead State')
-    ax[i].plot(x, sfMBSparse[:,mid1], '--r', label=trans_lab)
+    ax[i].plot(x, sfSS, '--', color=ss_color)
+    ax[i].plot(x, sfMBSparse[:,mid1], '-k')
+    ax[i].set_title('t = 1 [s]')
     ax[i].set_xlim(0, 8)
-    ax[i].set_xlabel('Position [cm]')
     ax[i].set_ylabel('ϕ')
-    ax[i].grid(True)
-    ax[i].set(xlabel=None)
+    #ax[i].spines['right'].set_visible(False)
+    #ax[i].spines['top'].set_visible(False)
+    
     
     i+=1
-    ax[i].plot(x, sfSS, '--k', label='Stead State')
-    ax[i].plot(x, sfMBSparse[:,mid2], '--r', label=trans_lab)
+    ax[i].plot(x, sfSS, '--', color=ss_color)
+    ax[i].plot(x, sfMBSparse[:,mid2], '-k')
+    ax[i].set_title('t = 2 [s]')
     ax[i].set_xlim(0, 8)
-    ax[i].set_xlabel('Position [cm]')
     ax[i].set_ylabel('ϕ')
-    ax[i].grid(True)
-    ax[i].set(xlabel=None)
+    #ax[i].spines['right'].set_visible(False)
+    #ax[i].spines['top'].set_visible(False)
+    
     
     i+=1
-    ax[i].plot(x, sfSS, '--k', label='Stead State')
-    ax[i].plot(x, sfMBSparse[:,-1], '--r', label=trans_lab)
+    ax[i].plot(x, sfSS, '--', color=ss_color)
+    ax[i].plot(x, sfMBSparse[:,-1], '-k')
+    ax[i].set_title('t = 3 [s]')
     ax[i].set_xlim(0, 8)
     ax[i].set_xlabel('Position [cm]')
     ax[i].set_ylabel('ϕ')
-    ax[i].grid(True)
+    #ax[i].spines['right'].set_visible(False)
+    #ax[i].spines['top'].set_visible(False)
     
     
-    fig.legend()
     
-    plt.show()
+    plt.tight_layout()
 
-
-
+    #subplots_adjust(left=None, bottom=None, right=None, top=None, wspace=None, hspace=2)
+    
+    #plt.show()
+    plt.savefig('reeds.png', dpi=300)
+    
 
 def moive():
     fig,ax = plt.subplots()
