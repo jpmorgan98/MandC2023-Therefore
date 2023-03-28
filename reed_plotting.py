@@ -24,47 +24,60 @@ def subplots():
     mid2 =  int(2*sfMBSparse.shape[1]/3)
     trans_lab = 'Transient'
     
-    ss_color = 'gray'
+    ss_color = 'blue'
     trans_color = 'black'
     
     i=0
     ax[i].plot(x, sfSS, '--', color=ss_color, label='Stead State')
-    ax[i].plot(x, sfMBSparse[:,0], '-k', label=trans_lab)
+    ax[i].plot(x, sfMBSparse[:,0], '-g', label=trans_lab)
     ax[i].set_xlim(0, 8)
     ax[i].set_ylabel('ϕ')
-    ax[i].set_title('t = 0 [s]')
-    ax[i].legend(loc="upper right")
+    ax[i].set_title('Δt=0')
+    ax[i].text(6.5,3, 'steady state')
+    ax[i].text(3, 0.5, 'transient')
+    ax[i].grid()
+    #ax[i].legend(loc="upper right")
+    
     #ax[i].spines['right'].set_visible(False)
     #ax[i].spines['top'].set_visible(False)
     
     
     i+=1
     ax[i].plot(x, sfSS, '--', color=ss_color)
-    ax[i].plot(x, sfMBSparse[:,mid1], '-k')
-    ax[i].set_title('t = 1 [s]')
+    ax[i].plot(x, sfMBSparse[:,mid1], '-g')
+    ax[i].set_title('    1')
     ax[i].set_xlim(0, 8)
     ax[i].set_ylabel('ϕ')
+    ax[i].grid()
+    ax[i].text(4,4.5, 'steady state')
+    ax[i].text(2,1.5, 'transient')
     #ax[i].spines['right'].set_visible(False)
     #ax[i].spines['top'].set_visible(False)
     
     
     i+=1
     ax[i].plot(x, sfSS, '--', color=ss_color)
-    ax[i].plot(x, sfMBSparse[:,mid2], '-k')
-    ax[i].set_title('t = 2 [s]')
+    ax[i].plot(x, sfMBSparse[:,mid2], '-g')
+    ax[i].set_title('    2')
     ax[i].set_xlim(0, 8)
     ax[i].set_ylabel('ϕ')
+    ax[i].grid()
+    ax[i].text(4,4.5, 'steady state')
+    ax[i].text(2,2.5, 'transient')
     #ax[i].spines['right'].set_visible(False)
     #ax[i].spines['top'].set_visible(False)
     
     
     i+=1
     ax[i].plot(x, sfSS, '--', color=ss_color)
-    ax[i].plot(x, sfMBSparse[:,-1], '-k')
-    ax[i].set_title('t = 3 [s]')
+    ax[i].plot(x, sfMBSparse[:,-1], '-g')
+    ax[i].set_title('    3')
     ax[i].set_xlim(0, 8)
     ax[i].set_xlabel('Position [cm]')
     ax[i].set_ylabel('ϕ')
+    ax[i].grid()
+    ax[i].text(4,4.5, 'steady state')
+    ax[i].text(2,2.5, 'transient')
     #ax[i].spines['right'].set_visible(False)
     #ax[i].spines['top'].set_visible(False)
     
