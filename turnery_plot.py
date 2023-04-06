@@ -63,7 +63,7 @@ for i in range(N_angles.size):
     
     
     tax.boundary(linewidth=2.0)
-    tax.gridlines(color="black", multiple=1, linewidth=0.25, ls='-')
+    #tax.gridlines(color="black", multiple=1, linewidth=0.25, ls='-')
     
     # get and set the custom ticks:
     N_ticks = 6
@@ -74,10 +74,10 @@ for i in range(N_angles.size):
     tax._redraw_labels()
     
     # labels
-    tax.set_title(r"S$_{{{}}}$".format(N_angles[i]), fontsize=18, y=1.15, pad=-14)
+    tax.set_title(r"S$_{{{}}}$".format(N_angles[i]), fontsize=18, y=1.13, pad=-14)
     tax.left_axis_label("scattering ratio [$\Sigma_s/\Sigma$]", offset=0.20, fontsize=10)
     tax.right_axis_label("mfp thickness [$\Sigma*\Delta x$]", offset=0.20, fontsize=10)
-    tax.bottom_axis_label("$\Delta t$", offset=0, fontsize=10)
+    tax.bottom_axis_label("time step [$\Delta t$]", offset=0, fontsize=10)
 
     # controling the matplotlib function
     tax.get_axes().axis('off')
