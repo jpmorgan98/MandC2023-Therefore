@@ -32,7 +32,7 @@ def subplots():
     ax[i].plot(x, sfMBSparse[:,0], '-g', label=trans_lab)
     ax[i].set_xlim(0, 8)
     ax[i].set_ylabel('ϕ')
-    ax[i].set_title('Δt=0')
+    ax[i].set_title(' t=0')
     ax[i].text(6.5,3, 'steady state')
     ax[i].text(3, 0.5, 'transient')
     ax[i].grid()
